@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScamScreen - check a suspicious message before you act on it</title>
+<meta name="description" content="Paste a suspicious text, email or DM. ScamScreen explains the red flags in plain English and tells you what to do next. Runs entirely on your device.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>ScamScreen</h1>
+<p class="sub">Got a weird text, email, or DM? Paste it here before you click, pay, or reply. ScamScreen explains the red flags in plain English - and the whole check runs on your device. <b>Nothing you paste is sent anywhere.</b></p>
+</header>
+
+<div class="card">
+<textarea id="msg" rows="6" placeholder="Paste the whole message here - including any links or phone numbers it contains"></textarea>
+<div class="row">
+<button id="go" class="primary">Check this message</button>
+<button id="clear" class="ghost">Clear</button>
+</div>
+<div class="examples">
+<span>Try a synthetic example:</span>
+<button class="ex" data-ex="0">Fake delivery fee text</button>
+<button class="ex" data-ex="1">Fake tax rebate</button>
+<button class="ex" data-ex="2">"Hi mum" new number</button>
+</div>
+<p class="fine">The examples are made up for demonstration. They are not real messages from those organisations.</p>
+</div>
+
+<div id="result" hidden>
+<div id="banner"></div>
+<div id="flags"></div>
+<div class="card next">
+<h2 id="nextTitle">What to do next</h2>
+<ul id="steps"></ul>
+</div>
+<div class="card note">
+<h2>Please read</h2>
+<p id="disclaimer"></p>
+<p class="fine">ScamScreen is a pattern-checker, not an authority. It does not contact any organisation, check any database, or prove who sent a message. It is not a replacement for emergency services - if you or someone else is in immediate danger, call 999. If money is already gone, call your bank now on the number printed on your card.</p>
+</div>
+</div>
+
+<footer>
+<p>Built for SafeSpace Hacks. Free, no account, no tracking - the analysis is 100% local JavaScript. <a href="https://github.com/vaibhav4046/scamscreen">Source code</a>.</p>
+</footer>
+</div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
