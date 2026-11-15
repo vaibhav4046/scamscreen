@@ -125,8 +125,12 @@ function linkFlags(text) {
       let verdict = null;
       for (const lab of labels) {
         if (lab === bb) continue;
-        if (levenshtein(lab, bb) <= 1 || (lab.length > bb.length && levenshtein(lab.slice(0, bb.length), bb) <= 1)) { verdict = 'lookalike'; break; }
-        if (lab.includes(bb)) { verdict = 'brandstuff'; break; }
+        if (levenshtein(lab, bb) <= 1) { verdict = 'lookalike'; break; }
+        if (lab.length > bb.length) {
+          const d = levenshtein(lab.slice(0, bb.length), bb);
+          if (d === 1) { verdict = 'lookalike'; break; }
+          if (d === 0 || lab.includes(bb)) { verdict = 'brandstuff'; break; }
+        } else if (lab.includes(bb)) { verdict = 'brandstuff'; break; }
       }
       if (verdict === 'lookalike') {
         flags.push({ id: 'link-lookalike', label: `Lookalike link imitating "${b}"`, weight: 40, evidence: [snip],
