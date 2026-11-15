@@ -1,0 +1,8 @@
+{
+  "name": "scamscreen",
+  "version": "1.0.0",
+  "description": "Paste a suspicious message; get plain-English red flags and what to do next. 100% on-device analysis.",
+  "type": "module",
+  "scripts": { "start": "node run.mjs" },
+  "license": "MIT"
+}
